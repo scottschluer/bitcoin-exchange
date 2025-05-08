@@ -1,0 +1,184 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+
+/* Bitcoin Exchange custom CSS */
+
+/* Smooth transitions for theme changes */
+html {
+    transition: background-color 0.3s ease;
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Bitcoin-specific customizations */
+.text-bitcoin-orange {
+    color: #F7931A;
+}
+
+/* Modern shadows */
+.shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+}
+
+/* Glassy effect for cards in dark mode */
+.dark .glass-card {
+    background-color: rgba(29, 29, 29, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Price change animations */
+@keyframes pulse-green {
+    0% {
+        background-color: rgba(16, 185, 129, 0.1);
+    }
+
+    50% {
+        background-color: rgba(16, 185, 129, 0.2);
+    }
+
+    100% {
+        background-color: rgba(16, 185, 129, 0.1);
+    }
+}
+
+@keyframes pulse-red {
+    0% {
+        background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    50% {
+        background-color: rgba(239, 68, 68, 0.2);
+    }
+
+    100% {
+        background-color: rgba(239, 68, 68, 0.1);
+    }
+}
+
+.price-up {
+    animation: pulse-green 2s infinite;
+}
+
+.price-down {
+    animation: pulse-red 2s infinite;
+}
+
+/* Gradient animations */
+.bg-gradient-animate {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Improved buttons */
+.btn-bitcoin {
+    @apply bg-bitcoin-orange text-white hover:bg-amber-600 transition-all duration-150 shadow-sm hover:shadow-md active:scale-95;
+}
+
+/* Transition effects */
+.transition-all-ease {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors duration-200;
+}
+
+/* Dashboard chart container */
+.chart-container {
+    @apply rounded-lg overflow-hidden shadow-sm bg-white dark:bg-bitcoin-gray border border-gray-200 dark:border-gray-700;
+}
+
+/* Bitcoin icon pulse on hover */
+.bitcoin-icon {
+    @apply transition-all duration-300;
+}
+
+.bitcoin-icon:hover {
+    @apply text-bitcoin-orange transform scale-110;
+}
+
+/* Card hover effects */
+.hover-lift {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.hover-lift:hover {
+    @apply transform -translate-y-1 shadow-md;
+}
+
+/* Table row hover */
+.table-row-hover {
+    @apply transition-all duration-150;
+}
+
+.table-row-hover:hover {
+    @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:ring-offset-2 dark:focus:ring-offset-bitcoin-black;
+}
+
+/* Value change animations */
+@keyframes highlight-increase {
+    0% {
+        color: rgba(22, 163, 74, 1);
+    }
+
+    100% {
+        color: currentColor;
+    }
+}
+
+@keyframes highlight-decrease {
+    0% {
+        color: rgba(220, 38, 38, 1);
+    }
+
+    100% {
+        color: currentColor;
+    }
+}
+
+.animate-increase {
+    animation: highlight-increase 1.5s ease-out;
+}
+
+.animate-decrease {
+    animation: highlight-decrease 1.5s ease-out;
+}
